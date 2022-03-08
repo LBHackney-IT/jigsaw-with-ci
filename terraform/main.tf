@@ -7,10 +7,10 @@ terraform {
   }
 
   backend "s3" {
-    bucket         = "single-view-fe-prototype-terraform-state"
+    bucket         = "single-view-jigsaw-prototype-terraform-state"
     key            = "global/s3/terraform.tfstate"
     region         = "eu-west-2"
-    dynamodb_table = "single-view-fe-prototype-terraform-state-lock"
+    dynamodb_table = "single-view-jigsaw-prototype-terraform-state-lock"
     encrypt        = true
   }
 }
