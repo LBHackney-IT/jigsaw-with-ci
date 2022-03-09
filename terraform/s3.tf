@@ -1,6 +1,6 @@
 resource "aws_s3_bucket" "single-view-jigsaw-prototype" {
   bucket = "single-view-jigsaw-prototype"
-  tags   = module.single-view-fe-prototype.tags
+  tags   = module.single-view-jigsaw-prototype.tags
   acl    = "private"
 
   website {
