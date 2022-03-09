@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { JigsawGetRequest } from "./JigsawGetRequest";
-import { doLogin } from "./jigsawLogin";
+import { doLogin, getCSRFTokens } from "./jigsawLogin";
 
 export const JigsawAuth = () => {
  const [username, setUsername] = useState('');
@@ -40,6 +40,12 @@ const doJigsawLogin = async function() {
     setNeedsAuth(false);
   }
 }
+
+useEffect(() => {
+  let { cookies, token } = getCSRFTokens();
+  
+}, [])
+
 
 
   return (

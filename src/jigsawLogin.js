@@ -47,7 +47,7 @@ export const doLogin = async (username, password) => {
 };
 
 
-const getCSRFTokens = async function () {
+export const getCSRFTokens = async function () {
   const httpResponse = await axios.get(loginUrl, {
     headers: {
       'mode': 'no-cors',
