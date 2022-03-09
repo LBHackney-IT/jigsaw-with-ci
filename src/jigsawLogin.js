@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 
-const loginUrl = 'https://live.housingjigsaw.co.uk/auth/login/';
+const loginUrl = 'https://live.housingjigsaw.co.uk/auth/login';
 
 
 export const doLogin = async (username, password) => { 
