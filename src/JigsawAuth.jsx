@@ -12,12 +12,28 @@ export const JigsawAuth = () => {
   setNeedsAuth(!needsAuth);
 }
 
+const onUsernameChange = (e) => {
+  setUsername(e.target.value);
+  setAuthError(false);
+}
+
+const onPasswordChange = (e) => { 
+  setPassword(e.target.value);
+  setAuthError(false);
+}
+
+
+
 
 
 const doJigsawLogin = async function() { 
+  if (username.length === 0 || password.length === 0) {
+    setAuthError(true);
+    return;
+  }
   const token = await doLogin(username, password);
-  if (!token) {
-    console.log('Error logging in');
+  if (token.length === 0) {
+    console.log('Error authenticating');
     setAuthError(true);
   } else {
     localStorage.setItem('jigsawToken', token);
@@ -38,7 +54,7 @@ const doJigsawLogin = async function() {
         name="test-name"
         type="text"
         value={username}
-        onChange={(e) => setUsername(e.target.value)}
+        onChange={onUsernameChange}
       />
       <label class="govuk-label lbh-label" for="input-example">
         Jigsaw Password
@@ -49,7 +65,7 @@ const doJigsawLogin = async function() {
         name="test-name"
         type="text"
         value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        onChange={onPasswordChange}
       />
       {authError && <span class="govuk-error-message lbh-error-message">Error validating credentials</span>}
       <button class="govuk-button lbh-button" data-module="govuk-button"onClick={doJigsawLogin}> Authenticate with Jigsaw
