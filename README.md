@@ -6,11 +6,13 @@ It uses a Sass stylesheet, as documented [here](https://create-react-app.dev/doc
 
 ## Installation
 
-You need Node.js and npm installed.
+You need Node.js and yarn installed.
 
 ```
-npm install
+yarn install
 npm start
 ```
 
 It will be on `localhost:3000`
+
+To make the API calls you will need the https://github.com/LBHackney-IT/single-view-api-prototype repo, running on port 3001.

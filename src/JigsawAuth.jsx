@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { JigsawGetRequest } from "./JigsawGetRequest";
-import { doLogin, getCSRFTokens } from "./jigsawLogin";
+import { JigsawGet } from "./JigsawGet";
+import { doLogin,  } from "./jigsawLogic";
 
 export const JigsawAuth = () => {
  const [username, setUsername] = useState('');
@@ -23,28 +23,23 @@ const onPasswordChange = (e) => {
 }
 
 
-
-
-
 const doJigsawLogin = async function() { 
   if (username.length === 0 || password.length === 0) {
     setAuthError(true);
     return;
   }
-  const token = await doLogin(username, password);
+  const token = doLogin(username, password);
   if (token.length === 0) {
     console.log('Error authenticating');
     setAuthError(true);
-  } else {
-    localStorage.setItem('jigsawToken', token);
+  } else {     
     setNeedsAuth(false);
   }
 }
 
-useEffect(() => {
-  let { cookies, token } = getCSRFTokens();
-  
-}, [])
+
+
+
 
 
 
@@ -77,7 +72,8 @@ useEffect(() => {
       <button class="govuk-button lbh-button" data-module="govuk-button"onClick={doJigsawLogin}> Authenticate with Jigsaw
       </button>
     </div>  
-    : <div><JigsawGetRequest setAuth={setAuth}/></div>
+    : <div><JigsawGet/></div>
+      
   );
 };
 
