@@ -64,7 +64,7 @@ const doJigsawLogin = async function() {
         class="govuk-input lbh-input"
         id="input-example"
         name="test-name"
-        type="text"
+        type="password"
         value={password}
         onChange={onPasswordChange}
       />
