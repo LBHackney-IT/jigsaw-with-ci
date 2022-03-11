@@ -7,8 +7,8 @@ export const JigsawGet = () => {
 
   const onClick = async function () {
     const response = await getData();
-    console.log(response);
-    setData(response);
+    
+    setData(JSON.parse(response));
   };
 
   return data.length > 0 ? (

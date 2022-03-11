@@ -7,16 +7,23 @@ export const doLogin = async (username, password) => {
     email: username,
     password: password,
   });
-  let token = JSON.parse(httpResponse.body.bearerToken);
+  
+  let token = httpResponse.data.body;
   localStorage.setItem("token", token);
-  console.log(token);
+  
   return token;
 };
 
 export const getData = async () => {
-  const { data } = await axios.post(`${loginUrl}/fetchData`, {
-    bearerToken: localStorage.getItem("token"),
+  const  httpResponse = await axios.post(`${loginUrl}/fetchData`, {
+    bearerToken: JSON.parse(localStorage.getItem("token")),
   });
+
+  
+  
+  console.log(httpResponse)
+
+  let data = httpResponse.data.body;
 
   return data;
 };
