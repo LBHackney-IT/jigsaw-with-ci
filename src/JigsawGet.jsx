@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { getData } from "./jigsawLogic";
+import { getData } from "./apiCalls";
 import { formatDateString } from "./utils";
 
 export const JigsawGet = () => {

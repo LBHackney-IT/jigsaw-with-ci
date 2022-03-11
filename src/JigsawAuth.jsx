@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { JigsawGet } from "./JigsawGet";
-import { doLogin,  } from "./jigsawLogic";
+import { doLogin,  } from "./apiCalls";
 
 export const JigsawAuth = () => {
  const [username, setUsername] = useState('');
