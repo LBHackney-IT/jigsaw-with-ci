@@ -8,10 +8,6 @@ export const JigsawAuth = () => {
  const [needsAuth, setNeedsAuth] = useState(true);
  const [authError, setAuthError] = useState(false);
 
-  const setAuth = () => {
-  setNeedsAuth(!needsAuth);
-}
-
 const onUsernameChange = (e) => {
   setUsername(e.target.value);
   setAuthError(false);

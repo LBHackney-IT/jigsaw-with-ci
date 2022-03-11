@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-const loginUrl = "http://localhost:3001";
+const loginUrl = 'http://localhost:3001';
 
 export const doLogin = async (username, password) => {
   const { data } = await axios.post(`${loginUrl}/authorise`, {
@@ -13,7 +13,7 @@ export const doLogin = async (username, password) => {
 };
 
 export const getData = async () => {
-  const { data } = await axios.post(`${loginUrl}/getData`, {
+  const { data } = await axios.post(`${loginUrl}/fetchData`, {
     bearerToken: localStorage.getItem("token"),
   });
 
